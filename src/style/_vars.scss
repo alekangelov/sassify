@@ -1,6 +1,13 @@
 $breakPoint: 768px;
-$yellow: #FFBE0B;
-$orange: #FB5607;
-$pink: #FF006E;
-$purple: #8338EC;
-$blue: #3A86FF;
+$yellow: #ffbe0b;
+$orange: #fb5607;
+$pink: #ff006e;
+$purple: #8338ec;
+$blue: #3a86ff;
+$twitter: #03a9f4;
+
+@mixin smallDevice {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
