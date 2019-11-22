@@ -6,6 +6,15 @@ import { CLAPS } from "../lib/consts";
 function randomNum(number) {
   return Math.floor(Math.random() * (number - 1));
 }
+
+function clearSelection() {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges();
+  } else if (document.selection) {
+    document.selection.empty();
+  }
+}
+
 export default function Print() {
   const context = useContext(AppContext);
   const [buttonText, setButtonText] = useState("Copy text!");
@@ -33,6 +42,7 @@ export default function Print() {
             textInput.current._ref.select();
             document.execCommand("copy");
             setButtonText("Copied!");
+            clearSelection();
             setTimeout(() => {
               setButtonText("Copy text!");
             }, 1000);
